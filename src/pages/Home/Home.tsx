@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import mockData from './mock.json';
+import React, { useEffect, useState } from 'react';
+import mockFood from './mockFood.json';
+import mockCulture from './mockCulture.json';
 import DataGrid from 'react-data-grid';
 import { entries } from 'lodash';
-import clsx from 'clsx';
+import { TileLayer, Marker, Popup, MapContainer } from 'react-leaflet';
 
 export interface LocationItem {
   name: string;
@@ -18,8 +19,11 @@ export interface LocationItem {
   id: number;
 }
 
-export interface LocationsReponse {
-  finalFood20210429: LocationItem[];
+export interface LocationsFoodReponse {
+  еда: LocationItem[];
+}
+export interface LocationsCultureReponse {
+  культура: LocationItem[];
 }
 
 const defaultColumnProperties = {
@@ -28,11 +32,23 @@ const defaultColumnProperties = {
   width: 120,
 };
 
-const initialRows = mockData.finalFood20210429.slice(0, 19) as LocationItem[];
+const initialRowsFood = mockFood.еда.slice(0, 19) as LocationItem[];
+const initialRowsCulture = mockCulture.культура.slice(0, 19) as LocationItem[];
 const Home = () => {
-  const [data] = useState<LocationItem[]>(initialRows);
+  const [food] = useState<LocationItem[]>(initialRowsFood);
+  const [culture] = useState<LocationItem[]>(initialRowsCulture);
 
-  const columns = entries(data[0])
+  useEffect(() => {
+    // let url = 'https://api.sheety.co/a38bf8b6248d41fd905a618e5c6a64c5/fastestGrowthLocations/культура';
+    // fetch(url)
+    //   .then(response => response.json())
+    //   .then(json => {
+    //     // Do something with the data
+    //     console.log(json.культура);
+    //   });
+  }, []);
+
+  const columns = entries(food[0])
     .filter(i => !!i[0])
     .map(([key, value]) => ({
       key,
@@ -40,60 +56,99 @@ const Home = () => {
       ...defaultColumnProperties,
     }));
 
-  // useEffect(() => {
-  //   let url = 'https://api.sheety.co/a38bf8b6248d41fd905a618e5c6a64c5/fastestGrowthLocations/finalFood20210429';
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then((json: LocationsReponse) => {
-  //       // Do something with the data
-  //       setLocations(json.finalFood20210429);
-  //     });
-  // }, []);
-
-  // console.log(data);
-
   return (
-    <div className="pb-9">
-      <div className={clsx('p-3  shadow-md text-2xl font-bold font-mono dark:bg-gray-900')}>
-        <div className="max-w-5xl m-auto">
-          <p className="">Super Guide</p>
-        </div>
+    <div className="">
+      <div className="text-center">
+        <p className="text-6xl font-bold leading-snug">
+          Самые быстрорастущие локации: рейтинг мест для отдыха в Москве за первый квартал 2021
+        </p>
+        <p className="pt-5 max-w-3xl m-auto text-2xl">
+          Раз в квартал top20locations.ru собирает 20 быстрорастущих мест в категориях{' '}
+          <a href="#food" className="underline cursor-pointer">
+            🍔еда
+          </a>
+          ,{' '}
+          <a href="#culture" className="underline cursor-pointer">
+            🎨 культура
+          </a>{' '}
+          и <span className="underline cursor-pointer">💃ночная жизнь</span>. Для каждого из ~60k московских Instagram-геотегов замеряется
+          число постов в начале и в конце квартала. На основе этих двух замеров считается показатель AGR — annualized growth rate —
+          среднегодовой темп роста. Согласно этому показателю и распределяются места в рейтинге.
+        </p>
       </div>
 
-      <div className="max-w-5xl m-auto py-44">
-        <div className="text-center">
-          <p className="text-6xl font-bold leading-snug">SGP Index: the fastest-growing places in Moscow, every quarter</p>
-          <p className="pt-5 max-w-2xl m-auto text-2xl">
-            We select the top-20 open-source startups by their growth at Github quarterly. The transparent and measurable methodology allows
-            to call it Super Guide Places (SGP) Index
-          </p>
-        </div>
+      <div className="max-w-4xl m-auto pt-32 text-xl">
+        <p>Этот рейтинг создан для тех, кто чаще остальных задает вопрос: “А куда сегодня сходить?”</p>
+      </div>
 
-        <div className="max-w-4xl m-auto pt-32 text-xl">
-          <p>
-            Runa actively invests in OSS startups (like Nginx and MariaDB) and considers an active developer community to be instrumental
-            for open-source businesses. We look for promising companies with a fast-growing army of fans, track them at Github, and decided
-            to open-source our findings as an index.
-          </p>
-          <br />
-          <p>
-            ROSS index highlights top-20 open-source startups by the annualised growth rate (AGR) of Github stars at their repositories.
-            While these stars are not a perfect metric for community evaluation, they allow us to understand which OSS products were on top
-            of developers’ mind last quarter. Our index is transparent, measurable and fully focused on startups.
-          </p>
-        </div>
+      {food && (
+        <div className="max-w-4xl m-auto pt-20" id="food">
+          <p className="pb-8 font-bold text-xl">Кафе, рестораны и бары (Q1 2021)</p>
+          <DataGrid
+            columns={columns}
+            minHeight={900}
+            rowsCount={20}
+            // @ts-ignore
+            rows={food}
+          />
 
-        {data && (
-          <div className="max-w-4xl m-auto pt-20">
-            <DataGrid
-              columns={columns}
-              minHeight={900}
-              rowsCount={20}
-              // @ts-ignore
-              rows={data}
-            />
+          <div className="pt-20">
+            <MapContainer center={[food[1].lat, food[1].lng]} zoom={11} scrollWheelZoom={false} style={{ height: 500 }}>
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              {food.map(marker => (
+                <Marker position={[marker.lat, marker.lng]}>
+                  <Popup>
+                    <p className="font-bold text-lg">{marker.name}</p>
+                    <p className="font text-base">{marker.locationAddress}</p>
+                    <p className="font text-sm">{marker.category}</p>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
           </div>
-        )}
+        </div>
+      )}
+
+      {food && (
+        <div className="max-w-4xl m-auto pt-20" id="culture">
+          <p className="pb-8 font-bold text-xl">Галереи, театры и музеи (Q1 2021)</p>
+          <DataGrid
+            columns={columns}
+            minHeight={900}
+            rowsCount={20}
+            // @ts-ignore
+            rows={culture}
+          />
+
+          <div className="pt-20">
+            <MapContainer center={[food[1].lat, food[1].lng]} zoom={11} scrollWheelZoom={false} style={{ height: 500 }}>
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              {food.map(marker => (
+                <Marker position={[marker.lat, marker.lng]}>
+                  <Popup>
+                    <p className="font-bold text-lg">{marker.name}</p>
+                    <p className="font text-base">{marker.locationAddress}</p>
+                    <p className="font text-sm">{marker.category}</p>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          </div>
+        </div>
+      )}
+
+      <div className="max-w-4xl m-auto pt-20">
+        <p className="pb-8 font-bold text-xl">Пока мы делали этот рейтинг, вот что произошло</p>
+
+        <ul>
+          <li>- Мы заболели COVID-19</li>
+          <li>- Спарсили 90k московских и питерских локаций</li>
+          <li>- 3 раза заказали “Кухню на районе”, посмотрели “Анастасию”, “Мулан”, “Красотку” и “Лего Фильм: Бэтмен”.</li>
+        </ul>
+
+        <p className="mt-12">
+          top20locations.ru — проект, который будет развиваться. Не стесняйтесь делиться своими комментариями и идеями КОНТАКТ
+        </p>
       </div>
     </div>
   );

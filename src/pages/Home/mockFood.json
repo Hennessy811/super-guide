@@ -1,5 +1,5 @@
 {
-  "finalFood20210429": [
+  "еда": [
     {
       "": 1,
       "name": "Eat Market Юго-Запад",
@@ -30,6 +30,20 @@
     },
     {
       "": 3,
+      "name": "IglooBar Москва",
+      "website": "https://www.instagram.com/igloobar.ru/",
+      "category": "Lounge",
+      "instagram": "https://www.instagram.com/igloobar.ru/",
+      "followerCount": 104000,
+      "lat": 55.776483,
+      "lng": 37.674937,
+      "locationAddress": "Нижняя Красносельская, 35с59",
+      "medias": 3764,
+      "agr": 11.448009,
+      "id": 4
+    },
+    {
+      "": 4,
       "name": "Loro Restaurant",
       "website": "https://www.loro.lucky-group.ru/",
       "category": "Restaurant",
@@ -40,10 +54,10 @@
       "locationAddress": "Большая Никитская, 21/18",
       "medias": 10118,
       "agr": 11.312405465596,
-      "id": 4
+      "id": 5
     },
     {
-      "": 4,
+      "": 5,
       "name": "SIMACH",
       "website": "https://www.instagram.com/simach_v_nedalnem/",
       "category": "Restaurant",
@@ -54,10 +68,10 @@
       "locationAddress": "Тверской Бульвар, 15с2",
       "medias": 11247,
       "agr": 8.81367280586199,
-      "id": 5
+      "id": 6
     },
     {
-      "": 5,
+      "": 6,
       "name": "Novikov School",
       "website": "https://novikovschool.com",
       "category": "Restaurant",
@@ -68,10 +82,10 @@
       "locationAddress": "Большая Якиманка, 22",
       "medias": 2471,
       "agr": 6.05245020024867,
-      "id": 6
+      "id": 7
     },
     {
-      "": 6,
+      "": 7,
       "name": "Eva",
       "website": "http://www.eva.lucky-group.ru",
       "category": "Greek Restaurant",
@@ -82,10 +96,10 @@
       "locationAddress": "Большая Грузинская, 69",
       "medias": 6662,
       "agr": 5.99536952733947,
-      "id": 7
+      "id": 8
     },
     {
-      "": 7,
+      "": 8,
       "name": "beloque_msk",
       "website": "https://taplink.cc/beloque_msk",
       "category": "Breakfast & Brunch Restaurant",
@@ -96,10 +110,10 @@
       "locationAddress": "Рочдельская, 15с26",
       "medias": 2335,
       "agr": 4.85224811159694,
-      "id": 8
+      "id": 9
     },
     {
-      "": 8,
+      "": 9,
       "name": "Sartoria Lamberti",
       "website": "https://www.sartorialamberti.com/news",
       "category": "Italian Restaurant",
@@ -110,10 +124,10 @@
       "locationAddress": "Тверская, 3",
       "medias": 3693,
       "agr": 4.78470284197331,
-      "id": 9
+      "id": 10
     },
     {
-      "": 9,
+      "": 10,
       "name": "Моремэй K-Pop Cafe & Shop Москва",
       "website": "https://www.instagram.com/_moremay_/",
       "category": "Coffee Shop",
@@ -124,10 +138,10 @@
       "locationAddress": "Абельмановская, 7",
       "medias": 2108,
       "agr": 4.66636649882536,
-      "id": 10
+      "id": 11
     },
     {
-      "": 10,
+      "": 11,
       "name": "Pino Restaurant Bar",
       "website": "http://pinorestaurantbar.ru",
       "category": "Restaurant",
@@ -138,10 +152,10 @@
       "locationAddress": "Малая Бронная, 21/13",
       "medias": 17616,
       "agr": 4.49105519555627,
-      "id": 11
+      "id": 12
     },
     {
-      "": 11,
+      "": 12,
       "name": "Magnus Locus",
       "website": "http://magnuslocus.ru",
       "category": "Restaurant",
@@ -152,10 +166,10 @@
       "locationAddress": "Проспект Мира, 12с9",
       "medias": 2989,
       "agr": 4.4749678630562,
-      "id": 12
+      "id": 13
     },
     {
-      "": 12,
+      "": 13,
       "name": "Papa Barvillage Moscow",
       "website": "https://papabarvillage.com ",
       "category": "Theme Restaurant",
@@ -166,10 +180,10 @@
       "locationAddress": "1-я Брестская, 2с3",
       "medias": 3027,
       "agr": 4.23703133321195,
-      "id": 13
+      "id": 14
     },
     {
-      "": 13,
+      "": 14,
       "name": "ладо",
       "website": "http://lado.moscow/?utm_source=facebook&utm_medium=profile",
       "category": "Restaurant",
@@ -180,10 +194,10 @@
       "locationAddress": "Кривоколенный переулок, 9с2",
       "medias": 2719,
       "agr": 4.13846725640904,
-      "id": 14
+      "id": 15
     },
     {
-      "": 14,
+      "": 15,
       "name": "Ресторан \"Доктор Ватсон\"",
       "website": "https://drwatson-restaurant.ru/",
       "category": "Pub",
@@ -194,10 +208,10 @@
       "locationAddress": "Большая Почтовая, 20",
       "medias": 2114,
       "agr": 3.95612003846034,
-      "id": 15
+      "id": 16
     },
     {
-      "": 15,
+      "": 16,
       "name": "BURO TSUM",
       "website": "http://burotsum.com/about",
       "category": "Modern European Restaurant",
@@ -208,10 +222,10 @@
       "locationAddress": "Петровка, 2",
       "medias": 15633,
       "agr": 3.66503831145939,
-      "id": 16
+      "id": 17
     },
     {
-      "": 16,
+      "": 17,
       "name": "Central Market",
       "website": "https://moscowcentralmarket.ru",
       "category": "Restaurant",
@@ -222,10 +236,10 @@
       "locationAddress": "Рождественский бульвар, 1",
       "medias": 5105,
       "agr": 3.28,
-      "id": 17
+      "id": 18
     },
     {
-      "": 17,
+      "": 18,
       "name": "«Чайхона 1» сеть lounge cafe",
       "website": "https://chaihona1.ru/",
       "category": "Restaurant",
@@ -236,10 +250,10 @@
       "locationAddress": "Новый Арбат, 21",
       "medias": 4799,
       "agr": 3.1261940765629,
-      "id": 18
+      "id": 19
     },
     {
-      "": 18,
+      "": 19,
       "name": "Harvey&Monica Москва",
       "website": "http://harveyandmonica.ru",
       "category": "Restaurant",
@@ -250,10 +264,10 @@
       "locationAddress": "Котельническая наб., 31",
       "medias": 2609,
       "agr": 3.12418633660848,
-      "id": 19
+      "id": 20
     },
     {
-      "": 19,
+      "": 20,
       "name": "Сыроварня в Парке Горького",
       "website": "https://syrovarnya.com",
       "category": "Restaurant",
@@ -264,10 +278,10 @@
       "locationAddress": "Крымский Вал, 9с1",
       "medias": 2047,
       "agr": 2.89246539925741,
-      "id": 20
+      "id": 21
     },
     {
-      "": 20,
+      "": 21,
       "name": "Bamboo.Bar",
       "website": "http://bamboobar.su",
       "category": "Sushi Restaurant",
@@ -278,7 +292,7 @@
       "locationAddress": "Пресненская наб., 8с1",
       "medias": 2277,
       "agr": 2.78720590647039,
-      "id": 21
+      "id": 22
     },
     {
       "": 21,
@@ -292,7 +306,7 @@
       "locationAddress": "Театральный пр-д, 2",
       "medias": 8335,
       "agr": 2.73907607682205,
-      "id": 22
+      "id": 23
     },
     {
       "": "",
@@ -306,7 +320,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 2.48027816297452,
-      "id": 23
+      "id": 24
     },
     {
       "": "",
@@ -320,7 +334,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 2.39276541713668,
-      "id": 24
+      "id": 25
     },
     {
       "": "",
@@ -334,7 +348,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 2.07384822017184,
-      "id": 25
+      "id": 26
     },
     {
       "": "",
@@ -348,7 +362,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.98531757199153,
-      "id": 26
+      "id": 27
     },
     {
       "": "",
@@ -362,7 +376,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.95941617062491,
-      "id": 27
+      "id": 28
     },
     {
       "": "",
@@ -376,7 +390,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.87858155784832,
-      "id": 28
+      "id": 29
     },
     {
       "": "",
@@ -390,7 +404,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.80236044283552,
-      "id": 29
+      "id": 30
     },
     {
       "": "",
@@ -404,7 +418,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.69180223068439,
-      "id": 30
+      "id": 31
     },
     {
       "": "",
@@ -418,7 +432,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.67199778623103,
-      "id": 31
+      "id": 32
     },
     {
       "": "",
@@ -432,7 +446,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.63241628335682,
-      "id": 32
+      "id": 33
     },
     {
       "": "",
@@ -446,7 +460,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.58998777886108,
-      "id": 33
+      "id": 34
     },
     {
       "": "",
@@ -460,7 +474,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.57553326370656,
-      "id": 34
+      "id": 35
     },
     {
       "": "",
@@ -474,7 +488,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.53181642923295,
-      "id": 35
+      "id": 36
     },
     {
       "": "",
@@ -488,7 +502,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.46335983773994,
-      "id": 36
+      "id": 37
     },
     {
       "": "",
@@ -502,7 +516,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.44347280251961,
-      "id": 37
+      "id": 38
     },
     {
       "": "",
@@ -516,7 +530,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.41240145871422,
-      "id": 38
+      "id": 39
     },
     {
       "": "",
@@ -530,7 +544,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.37628028101636,
-      "id": 39
+      "id": 40
     },
     {
       "": "",
@@ -544,7 +558,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.37599121598087,
-      "id": 40
+      "id": 41
     },
     {
       "": "",
@@ -558,7 +572,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.37291624561127,
-      "id": 41
+      "id": 42
     },
     {
       "": "",
@@ -572,7 +586,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.35266423591896,
-      "id": 42
+      "id": 43
     },
     {
       "": "",
@@ -586,7 +600,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.34906385223411,
-      "id": 43
+      "id": 44
     },
     {
       "": "",
@@ -600,7 +614,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.32867048179521,
-      "id": 44
+      "id": 45
     },
     {
       "": "",
@@ -614,7 +628,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.29226908765878,
-      "id": 45
+      "id": 46
     },
     {
       "": "",
@@ -628,7 +642,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.26087237239305,
-      "id": 46
+      "id": 47
     },
     {
       "": "",
@@ -642,7 +656,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.23412208612191,
-      "id": 47
+      "id": 48
     },
     {
       "": "",
@@ -656,7 +670,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.22669324736745,
-      "id": 48
+      "id": 49
     },
     {
       "": "",
@@ -670,7 +684,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.22142472670984,
-      "id": 49
+      "id": 50
     },
     {
       "": "",
@@ -684,7 +698,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.2096966496583,
-      "id": 50
+      "id": 51
     },
     {
       "": "",
@@ -698,7 +712,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.19240026987861,
-      "id": 51
+      "id": 52
     },
     {
       "": "",
@@ -712,7 +726,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.1646828199885,
-      "id": 52
+      "id": 53
     },
     {
       "": "",
@@ -726,7 +740,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.14702007086151,
-      "id": 53
+      "id": 54
     },
     {
       "": "",
@@ -740,7 +754,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.13608918311701,
-      "id": 54
+      "id": 55
     },
     {
       "": "",
@@ -754,7 +768,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.12535155885955,
-      "id": 55
+      "id": 56
     },
     {
       "": "",
@@ -768,7 +782,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.1127519203465,
-      "id": 56
+      "id": 57
     },
     {
       "": "",
@@ -782,7 +796,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.11153994594708,
-      "id": 57
+      "id": 58
     },
     {
       "": "",
@@ -796,7 +810,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.10461248122893,
-      "id": 58
+      "id": 59
     },
     {
       "": "",
@@ -810,7 +824,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.10216678111354,
-      "id": 59
+      "id": 60
     },
     {
       "": "",
@@ -824,7 +838,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.09847193061662,
-      "id": 60
+      "id": 61
     },
     {
       "": "",
@@ -838,7 +852,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.08755724376748,
-      "id": 61
+      "id": 62
     },
     {
       "": "",
@@ -852,7 +866,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.05957426522351,
-      "id": 62
+      "id": 63
     },
     {
       "": "",
@@ -866,7 +880,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.05045404796095,
-      "id": 63
+      "id": 64
     },
     {
       "": "",
@@ -880,7 +894,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.0483447446796,
-      "id": 64
+      "id": 65
     },
     {
       "": "",
@@ -894,7 +908,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.04714251078714,
-      "id": 65
+      "id": 66
     },
     {
       "": "",
@@ -908,7 +922,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.04213521831387,
-      "id": 66
+      "id": 67
     },
     {
       "": "",
@@ -922,7 +936,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.02491752550778,
-      "id": 67
+      "id": 68
     },
     {
       "": "",
@@ -936,7 +950,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.01977851047792,
-      "id": 68
+      "id": 69
     },
     {
       "": "",
@@ -950,7 +964,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 1.01580251398136,
-      "id": 69
+      "id": 70
     },
     {
       "": "",
@@ -964,7 +978,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.974934064272823,
-      "id": 70
+      "id": 71
     },
     {
       "": "",
@@ -978,7 +992,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.959402291866868,
-      "id": 71
+      "id": 72
     },
     {
       "": "",
@@ -992,7 +1006,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.94961414741519,
-      "id": 72
+      "id": 73
     },
     {
       "": "",
@@ -1006,7 +1020,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.94919838885121,
-      "id": 73
+      "id": 74
     },
     {
       "": "",
@@ -1020,7 +1034,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.940973200486964,
-      "id": 74
+      "id": 75
     },
     {
       "": "",
@@ -1034,7 +1048,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.935746751291153,
-      "id": 75
+      "id": 76
     },
     {
       "": "",
@@ -1048,7 +1062,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.896032467782928,
-      "id": 76
+      "id": 77
     },
     {
       "": "",
@@ -1062,7 +1076,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.888801586059955,
-      "id": 77
+      "id": 78
     },
     {
       "": "",
@@ -1076,7 +1090,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.884426800522501,
-      "id": 78
+      "id": 79
     },
     {
       "": "",
@@ -1090,7 +1104,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.880485078177942,
-      "id": 79
+      "id": 80
     },
     {
       "": "",
@@ -1104,7 +1118,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.879494418925538,
-      "id": 80
+      "id": 81
     },
     {
       "": "",
@@ -1118,7 +1132,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.874152127666585,
-      "id": 81
+      "id": 82
     },
     {
       "": "",
@@ -1132,7 +1146,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.8600925269747,
-      "id": 82
+      "id": 83
     },
     {
       "": "",
@@ -1146,7 +1160,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.844930920167571,
-      "id": 83
+      "id": 84
     },
     {
       "": "",
@@ -1160,7 +1174,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.842129135261852,
-      "id": 84
+      "id": 85
     },
     {
       "": "",
@@ -1174,7 +1188,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.805114410231906,
-      "id": 85
+      "id": 86
     },
     {
       "": "",
@@ -1188,7 +1202,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.800038606207092,
-      "id": 86
+      "id": 87
     },
     {
       "": "",
@@ -1202,7 +1216,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.799670250662144,
-      "id": 87
+      "id": 88
     },
     {
       "": "",
@@ -1216,7 +1230,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.790957140972135,
-      "id": 88
+      "id": 89
     },
     {
       "": "",
@@ -1230,7 +1244,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.7894777606607,
-      "id": 89
+      "id": 90
     },
     {
       "": "",
@@ -1244,7 +1258,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.782957602245181,
-      "id": 90
+      "id": 91
     },
     {
       "": "",
@@ -1258,7 +1272,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.769089306453565,
-      "id": 91
+      "id": 92
     },
     {
       "": "",
@@ -1272,7 +1286,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.766909370618856,
-      "id": 92
+      "id": 93
     },
     {
       "": "",
@@ -1286,7 +1300,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.749581817914597,
-      "id": 93
+      "id": 94
     },
     {
       "": "",
@@ -1300,7 +1314,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.742021988650218,
-      "id": 94
+      "id": 95
     },
     {
       "": "",
@@ -1314,7 +1328,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.738875387847515,
-      "id": 95
+      "id": 96
     },
     {
       "": "",
@@ -1328,7 +1342,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.738142600804132,
-      "id": 96
+      "id": 97
     },
     {
       "": "",
@@ -1342,7 +1356,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.736310001595413,
-      "id": 97
+      "id": 98
     },
     {
       "": "",
@@ -1356,7 +1370,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.736074907982202,
-      "id": 98
+      "id": 99
     },
     {
       "": "",
@@ -1370,7 +1384,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.728312529368438,
-      "id": 99
+      "id": 100
     },
     {
       "": "",
@@ -1384,7 +1398,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.727038750404641,
-      "id": 100
+      "id": 101
     },
     {
       "": "",
@@ -1398,7 +1412,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.722471031630689,
-      "id": 101
+      "id": 102
     },
     {
       "": "",
@@ -1412,7 +1426,7 @@
       "locationAddress": "",
       "medias": "",
       "agr": 0.72101664792497,
-      "id": 102
+      "id": 103
     }
   ]
 }

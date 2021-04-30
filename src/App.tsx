@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useMedia } from 'react-use';
 import Home from './pages/Home';
-import Payments from './pages/Payments';
-import Requests from './pages/Requests';
+import Layout from './shared/components/Layout';
 
 function App() {
   const prefersDarkMode = useMedia('(prefers-color-scheme: dark)');
@@ -17,18 +16,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Layout> */}
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/pay" exact>
-          <Payments />
-        </Route>
-        <Route path="/requests" exact>
-          <Requests />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+        </Switch>
+      </Layout>
     </BrowserRouter>
   );
 }
