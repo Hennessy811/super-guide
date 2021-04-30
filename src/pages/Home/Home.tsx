@@ -67,11 +67,24 @@ const Home = () => {
       key: 'name',
       name: 'Название',
       ...defaultColumnProperties,
+      formatter: e => {
+        return (
+          <a
+            className="underline"
+            href={(e.row as LocationItem).instagram || (e.row as LocationItem).website || ''}
+            target="__blank"
+            rel="noopener"
+          >
+            {(e.row as LocationItem).name}
+          </a>
+        );
+      },
     },
     {
       key: 'category',
       name: 'Категория',
       ...defaultColumnProperties,
+      width: 220,
     },
     {
       key: 'locationAddress',
@@ -86,24 +99,6 @@ const Home = () => {
       width: 80,
       formatter: e => {
         return <div>{kFormatter((e.row as LocationItem).followerCount) || ''}</div>;
-      },
-    },
-    {
-      key: '',
-      name: '🔗',
-      ...defaultColumnProperties,
-      width: 80,
-      formatter: e => {
-        return (
-          <a
-            className="text-center w-full"
-            href={(e.row as LocationItem).instagram || (e.row as LocationItem).website || ''}
-            target="__blank"
-            rel="noopener"
-          >
-            {((e.row as LocationItem).instagram || (e.row as LocationItem).website) && '🔗'}
-          </a>
-        );
       },
     },
     {
