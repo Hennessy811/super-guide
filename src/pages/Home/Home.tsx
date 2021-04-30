@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import mockData from './mock.json';
 import DataGrid from 'react-data-grid';
 import { entries } from 'lodash';
-import { useMedia } from 'react-use';
 import clsx from 'clsx';
 
 export interface LocationItem {
@@ -31,15 +30,6 @@ const defaultColumnProperties = {
 
 const initialRows = mockData.finalFood20210429.slice(0, 19) as LocationItem[];
 const Home = () => {
-  const prefersDarkMode = useMedia('(prefers-color-scheme: dark)');
-
-  useEffect(() => {
-    if (prefersDarkMode) {
-      document.body.style.backgroundColor = 'rgba(24, 24, 27,1)';
-      document.body.style.color = 'white';
-    }
-  }, [prefersDarkMode]);
-
   const [data] = useState<LocationItem[]>(initialRows);
 
   const columns = entries(data[0])
