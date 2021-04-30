@@ -96,14 +96,14 @@ const Home = () => {
       key: 'followerCount',
       name: 'Подписчиков',
       ...defaultColumnProperties,
-      width: 80,
+      width: 120,
       formatter: e => {
         return <div>{kFormatter((e.row as LocationItem).followerCount) || ''}</div>;
       },
     },
     {
       key: 'medias',
-      name: 'Постов с тегом',
+      name: 'Посты',
       ...defaultColumnProperties,
       width: 100,
     },
@@ -130,8 +130,16 @@ const Home = () => {
             🎨 культура
           </a>{' '}
           и <span className="underline cursor-pointer">💃ночная жизнь</span>. Для каждого из ~60k московских Instagram-геотегов замеряется
-          число постов в начале и в конце квартала. На основе этих двух замеров считается показатель AGR — annualized growth rate —
-          среднегодовой темп роста. Согласно этому показателю и распределяются места в рейтинге.
+          число постов в начале и в конце квартала. На основе этих двух замеров считается показатель{' '}
+          <a
+            href="https://en.wikipedia.org/wiki/Compound_annual_growth_rate "
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            AGR
+          </a>{' '}
+          — среднегодовой темп роста — среднегодовой темп роста. Согласно этому показателю и распределяются места в рейтинге.
         </p>
       </div>
 
@@ -154,7 +162,7 @@ const Home = () => {
           />
 
           <div className="pt-20">
-            <MapContainer center={[food[1].lat, food[1].lng]} zoom={11} scrollWheelZoom={false} style={{ height: 500 }}>
+            <MapContainer center={[food[1].lat, food[1].lng]} zoom={10} style={{ height: 500 }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {food.map(marker => (
                 <Marker position={[marker.lat, marker.lng]}>
@@ -182,7 +190,7 @@ const Home = () => {
           />
 
           <div className="pt-20">
-            <MapContainer center={[culture[1].lat, culture[1].lng]} zoom={11} scrollWheelZoom={false} style={{ height: 500 }}>
+            <MapContainer center={[culture[1].lat, culture[1].lng]} zoom={10} style={{ height: 500 }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {culture.map(marker => (
                 <Marker position={[marker.lat, marker.lng]}>
@@ -198,7 +206,7 @@ const Home = () => {
         </div>
       )}
 
-      <div className="max-w-4xl m-auto pt-20">
+      {/* <div className="max-w-4xl m-auto pt-20">
         <p className="pb-8 font-bold text-xl">Пока мы делали этот рейтинг, вот что произошло</p>
 
         <ul>
@@ -210,6 +218,12 @@ const Home = () => {
         <p className="mt-12">
           top20locations.ru — проект, который будет развиваться. Не стесняйтесь делиться своими комментариями и идеями КОНТАКТ
         </p>
+      </div> */}
+
+      <div className="max-w-5xl m-auto pt-20">
+        <a href="mailto:danokhlopkov@gmail.com" className="underline font-mono font-bold text-xl">
+          Написать нам
+        </a>
       </div>
     </div>
   );

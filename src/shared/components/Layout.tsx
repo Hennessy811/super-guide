@@ -4,10 +4,10 @@ import Header from './Header';
 
 const Layout: FC = ({ children }) => {
   return (
-    <div className="pb-9">
+    <div className="pb-16">
       <Header />
 
-      <div className="max-w-5xl m-auto py-44">{children}</div>
+      <div className="max-w-5xl m-auto pt-44">{children}</div>
     </div>
   );
 };
