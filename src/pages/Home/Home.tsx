@@ -1,152 +1,98 @@
-import {
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  ListItemSecondaryAction,
-  IconButton,
-  Tooltip,
-  Grid,
-  useMediaQuery,
-} from '@material-ui/core';
-import { ArrowUpward, Check, Restore } from '@material-ui/icons';
 import React, { useState } from 'react';
-import useSWR from 'swr';
-import cn from 'classnames';
-import { XIcon } from '@heroicons/react/solid';
+import mockData from './mock.json';
+import DataGrid from 'react-data-grid';
+import { entries } from 'lodash';
 
-const agenda = {
-  today: [
-    {
-      title: 'Ожидают подтверждения',
-      subtitle: '4 группы по 2 услугам | 16 человек | 32 540 р.',
-      shortSubtitle: '16 человек | 32 540 р.',
-    },
-    {
-      title: 'Запросы от исполнителей',
-      subtitle: '2 человека | 13 251 р.',
-      shortSubtitle: '2 человека | 13 251 р.',
-    },
-  ],
-  weekly: [],
-  all: [],
-  postponed: [
-    {
-      title: 'Запросы от исполнителей',
-      subtitle: '13 251 р. | Отложено до 20.04',
-      shortSubtitle: '13 251 р. | Отложено до 20.04',
-    },
-    {
-      title: '🔁 SMM-менеджер',
-      subtitle: '6 500 р. | Отложено до 30.04',
-      shortSubtitle: '6 500 р. | Отложено до 30.04',
-    },
-  ],
+export interface LocationItem {
+  name: string;
+  website: string;
+  category: string;
+  instagram: string;
+  followerCount: number;
+  lat: number;
+  lng: number;
+  locationAddress: string;
+  medias: number;
+  agr: number;
+  id: number;
+}
+
+export interface LocationsReponse {
+  finalFood20210429: LocationItem[];
+}
+
+const defaultColumnProperties = {
+  resizable: true,
+  sortable: true,
+  width: 120,
 };
 
-export interface Geo {
-  lat: string;
-  lng: string;
-}
-
-export interface Addres {
-  street: string;
-  suite: string;
-  city: string;
-  zipcode: string;
-  geo: Geo;
-}
-
-export interface Company {
-  name: string;
-  catchPhrase: string;
-  bs: string;
-}
-
-export interface UserItem {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: Addres;
-  phone: string;
-  website: string;
-  company: Company;
-}
-
+const initialRows = mockData.finalFood20210429.slice(0, 19) as LocationItem[];
 const Home = () => {
-  const sm = useMediaQuery('(max-width: 600px)');
-  const [userId, setUserId] = useState<number | null>(null);
-  const { data, isValidating } = useSWR<UserItem[]>('https://jsonplaceholder.typicode.com/users');
-  const { data: user, isValidating: userLoading } = useSWR<UserItem>(() =>
-    userId ? `https://jsonplaceholder.typicode.com/users/` + userId : null
-  );
+  const [data] = useState<LocationItem[]>(initialRows);
+
+  const columns = entries(data[0])
+    .filter(i => !!i[0])
+    .map(([key, value]) => ({
+      key,
+      name: key,
+      ...defaultColumnProperties,
+    }));
+
+  // useEffect(() => {
+  //   let url = 'https://api.sheety.co/a38bf8b6248d41fd905a618e5c6a64c5/fastestGrowthLocations/finalFood20210429';
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then((json: LocationsReponse) => {
+  //       // Do something with the data
+  //       setLocations(json.finalFood20210429);
+  //     });
+  // }, []);
+
+  // console.log(data);
 
   return (
     <div className="pb-9">
-      <div className="bg-gradient-to-br from-green-400 to-primary-400 p-3 shadow-md text-2xl font-bold font-mono">
-        <div className="max-w-xl m-auto">
-          <p className="">Users List</p>
+      <div className="p-3 bg-white shadow-md text-2xl font-bold font-mono">
+        <div className="max-w-5xl m-auto">
+          <p className="">Super Guide</p>
         </div>
       </div>
-      <div className="max-w-xl m-auto mt-5 bg-white p-5 rounded-lg">
-        {userId && (
-          <div className="py-8 px-4 mb-5 rounded-lg shadow-lg h-80">
-            {userLoading ? (
-              <div>Loading...</div>
-            ) : (
-              <div>
-                <div className="flex justify-between items-center">
-                  <div className="text-4xl font-light font-mono">{user?.name}</div>
-                  <XIcon
-                    width={24}
-                    height={24}
-                    onClick={() => setUserId(null)}
-                    className="cursor-pointer text-gray-400 hover:text-gray-300 transform hover:rotate-90 transition-all"
-                  />
-                </div>
-                <div className="bg-gray-200 h-1 rounded shadow-sm"></div>
 
-                <div className="mt-3">
-                  <code>
-                    <pre className="text-xs">{JSON.stringify(user?.address, null, 2)}</pre>
-                  </code>
-                </div>
-              </div>
-            )}
+      <div className="max-w-5xl m-auto py-44">
+        <div className="text-center">
+          <p className="text-6xl font-bold leading-snug">SGP Index: the fastest-growing places in Moscow, every quarter</p>
+          <p className="pt-5 max-w-2xl m-auto text-2xl">
+            We select the top-20 open-source startups by their growth at Github quarterly. The transparent and measurable methodology allows
+            to call it Super Guide Places (SGP) Index
+          </p>
+        </div>
+
+        <div className="max-w-4xl m-auto pt-32 text-xl">
+          <p>
+            Runa actively invests in OSS startups (like Nginx and MariaDB) and considers an active developer community to be instrumental
+            for open-source businesses. We look for promising companies with a fast-growing army of fans, track them at Github, and decided
+            to open-source our findings as an index.
+          </p>
+          <br />
+          <p>
+            ROSS index highlights top-20 open-source startups by the annualised growth rate (AGR) of Github stars at their repositories.
+            While these stars are not a perfect metric for community evaluation, they allow us to understand which OSS products were on top
+            of developers’ mind last quarter. Our index is transparent, measurable and fully focused on startups.
+          </p>
+        </div>
+
+        {data && (
+          <div className="max-w-4xl m-auto pt-20">
+            <DataGrid
+              columns={columns}
+              minHeight={900}
+              rowsCount={20}
+              // @ts-ignore
+              rows={data}
+            />
           </div>
         )}
-
-        <div className="grid gap-4 grid-flow-row grid-cols-2">
-          {data?.map(user => {
-            const extended = user.id === 3 || user.id === 9;
-            return (
-              <div
-                onClick={() => setUserId(user.id)}
-                className={cn('p-4 shadow-md rounded-lg max-w-xs cursor-pointer hover:shadow-lg transition-shadow', {
-                  'row-span-2': extended,
-                })}
-              >
-                <div className="font-mono text-xl">{user.name}</div>
-                <div className="font-light text-base">{user.company.name}</div>
-                <div className="font-extralight text-sm">{user.phone}</div>
-                {extended && (
-                  <div className="mt-2">
-                    <div className="bg-gray-200 h-1 rounded shadow-sm"></div>
-
-                    <div className="mt-2">
-                      <div className="text-base font-mono hover:text-gray-600 transition-all">
-                        {user.address.city}, {user.address.street}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
       </div>
     </div>
   );
