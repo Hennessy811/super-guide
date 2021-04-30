@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import mockFood from './mockFood.json';
 import mockCulture from './mockCulture.json';
-import DataGrid from 'react-data-grid';
-import { entries } from 'lodash';
+import DataGrid, { Column } from 'react-data-grid';
 import { TileLayer, Marker, Popup, MapContainer } from 'react-leaflet';
 
+function kFormatter(num: number) {
+  if (Math.abs(num) > 999) {
+    // @ts-ignore
+    return Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + 'k';
+  } else {
+    return Math.sign(num) * Math.abs(num);
+  }
+}
 export interface LocationItem {
   name: string;
   website: string;
@@ -29,7 +36,7 @@ export interface LocationsCultureReponse {
 const defaultColumnProperties = {
   resizable: true,
   sortable: true,
-  width: 120,
+  width: 150,
 };
 
 const initialRowsFood = mockFood.еда.slice(0, 19) as LocationItem[];
@@ -48,13 +55,69 @@ const Home = () => {
     //   });
   }, []);
 
-  const columns = entries(food[0])
-    .filter(i => !!i[0])
-    .map(([key, value]) => ({
-      key,
-      name: key,
+  // const columns = entries(pick(food[0], ['name', 'category', 'locationAddress', 'followerCount', 'medias', 'agr']))
+  //   .filter(i => !!i && !!i[0])
+  //   .map(([key, value]: any) => ({
+  //     key,
+  //     name: key,
+  //     ...defaultColumnProperties,
+  //   }));
+  const columns: Column<LocationItem>[] = [
+    {
+      key: 'name',
+      name: 'Название',
       ...defaultColumnProperties,
-    }));
+    },
+    {
+      key: 'category',
+      name: 'Категория',
+      ...defaultColumnProperties,
+    },
+    {
+      key: 'locationAddress',
+      name: 'Адрес',
+      ...defaultColumnProperties,
+      width: undefined,
+    },
+    {
+      key: 'followerCount',
+      name: 'Подписчиков',
+      ...defaultColumnProperties,
+      width: 80,
+      formatter: e => {
+        return <div>{kFormatter((e.row as LocationItem).followerCount) || ''}</div>;
+      },
+    },
+    {
+      key: '',
+      name: '🔗',
+      ...defaultColumnProperties,
+      width: 80,
+      formatter: e => {
+        return (
+          <a
+            className="text-center w-full"
+            href={(e.row as LocationItem).instagram || (e.row as LocationItem).website || ''}
+            target="__blank"
+            rel="noopener"
+          >
+            {((e.row as LocationItem).instagram || (e.row as LocationItem).website) && '🔗'}
+          </a>
+        );
+      },
+    },
+    {
+      key: 'medias',
+      name: 'Постов с тегом',
+      ...defaultColumnProperties,
+      width: 100,
+    },
+    {
+      key: 'agr',
+      name: 'AGR',
+      ...defaultColumnProperties,
+    },
+  ];
 
   return (
     <div className="">
@@ -82,14 +145,17 @@ const Home = () => {
       </div>
 
       {food && (
-        <div className="max-w-4xl m-auto pt-20" id="food">
+        <div className="max-w-6xl m-auto pt-20" id="food">
           <p className="pb-8 font-bold text-xl">Кафе, рестораны и бары (Q1 2021)</p>
           <DataGrid
+            // @ts-ignore
             columns={columns}
             minHeight={900}
             rowsCount={20}
-            // @ts-ignore
             rows={food}
+            onRowClick={e => {
+              console.log(e);
+            }}
           />
 
           <div className="pt-20">
@@ -110,13 +176,13 @@ const Home = () => {
       )}
 
       {culture && (
-        <div className="max-w-4xl m-auto pt-20" id="culture">
+        <div className="max-w-6xl m-auto pt-20" id="culture">
           <p className="pb-8 font-bold text-xl">Галереи, театры и музеи (Q1 2021)</p>
           <DataGrid
+            // @ts-ignore
             columns={columns}
             minHeight={900}
             rowsCount={20}
-            // @ts-ignore
             rows={culture}
           />
 
