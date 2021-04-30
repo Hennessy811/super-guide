@@ -37,6 +37,9 @@ const defaultColumnProperties = {
   resizable: true,
   sortable: true,
   width: 150,
+  headerRenderer: (e: any) => {
+    return <span className="text-base">{e.column.name}</span>;
+  },
 };
 
 const initialRowsFood = mockFood.еда.slice(0, 19) as LocationItem[];
@@ -96,7 +99,7 @@ const Home = () => {
       key: 'followerCount',
       name: 'Подписчиков',
       ...defaultColumnProperties,
-      width: 120,
+      width: 130,
       formatter: e => {
         return <div>{kFormatter((e.row as LocationItem).followerCount) || ''}</div>;
       },
