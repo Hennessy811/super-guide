@@ -109,7 +109,7 @@ const Home = () => {
         </div>
       )}
 
-      {food && (
+      {culture && (
         <div className="max-w-4xl m-auto pt-20" id="culture">
           <p className="pb-8 font-bold text-xl">Галереи, театры и музеи (Q1 2021)</p>
           <DataGrid
@@ -121,9 +121,9 @@ const Home = () => {
           />
 
           <div className="pt-20">
-            <MapContainer center={[food[1].lat, food[1].lng]} zoom={11} scrollWheelZoom={false} style={{ height: 500 }}>
+            <MapContainer center={[culture[1].lat, culture[1].lng]} zoom={11} scrollWheelZoom={false} style={{ height: 500 }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              {food.map(marker => (
+              {culture.map(marker => (
                 <Marker position={[marker.lat, marker.lng]}>
                   <Popup>
                     <p className="font-bold text-lg">{marker.name}</p>
