@@ -143,9 +143,9 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="max-w-4xl m-auto pt-32 text-xl">
+      {/* <div className="max-w-4xl m-auto pt-32 text-xl">
         <p>Этот рейтинг создан для тех, кто чаще остальных задает вопрос: “А куда сегодня сходить?”</p>
-      </div>
+      </div> */}
 
       {food && (
         <div className="max-w-6xl m-auto pt-20" id="food">
@@ -159,6 +159,7 @@ const Home = () => {
             onRowClick={e => {
               console.log(e);
             }}
+            style={{ height: 702 }}
           />
 
           <div className="pt-20">
@@ -186,6 +187,7 @@ const Home = () => {
             columns={columns}
             minHeight={900}
             rowsCount={20}
+            style={{ height: 702 }}
             rows={culture}
           />
 
