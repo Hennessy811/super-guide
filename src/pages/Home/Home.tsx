@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import mockFood from './mockFood.json';
 import mockCulture from './mockCulture.json';
 import DataGrid, { Column } from 'react-data-grid';
-import { TileLayer, Marker, Popup, MapContainer } from 'react-leaflet';
+import { TileLayer, Marker, Popup, MapContainer, Tooltip } from 'react-leaflet';
+import { Bar, CartesianGrid, ComposedChart, Label, Legend, Line, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 function kFormatter(num: number) {
   if (Math.abs(num) > 999) {
@@ -58,13 +59,6 @@ const Home = () => {
     //   });
   }, []);
 
-  // const columns = entries(pick(food[0], ['name', 'category', 'locationAddress', 'followerCount', 'medias', 'agr']))
-  //   .filter(i => !!i && !!i[0])
-  //   .map(([key, value]: any) => ({
-  //     key,
-  //     name: key,
-  //     ...defaultColumnProperties,
-  //   }));
   const columns: Column<LocationItem>[] = [
     {
       key: 'name',
@@ -117,6 +111,18 @@ const Home = () => {
     },
   ];
 
+  const CustomizedAxisTick = (props: any) => {
+    const { x, y, payload } = props;
+
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">
+          {payload.value}
+        </text>
+      </g>
+    );
+  };
+
   return (
     <div className="">
       <div className="text-center">
@@ -142,14 +148,9 @@ const Home = () => {
           >
             AGR
           </a>{' '}
-          — среднегодовой темп роста — среднегодовой темп роста. Согласно этому показателю и распределяются места в рейтинге.
+          — среднегодовой темп роста. Согласно этому показателю и распределяются места в рейтинге.
         </p>
       </div>
-
-      {/* <div className="max-w-4xl m-auto pt-32 text-xl">
-        <p>Этот рейтинг создан для тех, кто чаще остальных задает вопрос: “А куда сегодня сходить?”</p>
-      </div> */}
-
       {food && (
         <div className="max-w-6xl m-auto pt-20" id="food">
           <p className="pb-8 font-bold text-xl">Кафе, рестораны и бары (Q1 2021)</p>
@@ -164,6 +165,47 @@ const Home = () => {
             }}
             style={{ height: 702 }}
           />
+
+          <div className="mt-20 p-8 bg-white shadow-sm">
+            <ResponsiveContainer width="100%" height={600}>
+              <ComposedChart
+                data={food}
+                margin={{
+                  // top: 20,
+                  right: 20,
+                  bottom: 150,
+                  left: 60,
+                }}
+              >
+                <CartesianGrid stroke="#a5a5a5" vertical={false} />
+                <XAxis dataKey="name" scale="auto" interval={0} tick={CustomizedAxisTick} />
+                <YAxis
+                  padding={{ top: 20 }}
+                  dataKey="followerCount"
+                  orientation="left"
+                  yAxisId="left"
+                  tickCount={8}
+                  tickFormatter={v => kFormatter(v) as string}
+                >
+                  <Label value="followerCount" angle={90} position="insideLeft" />
+                </YAxis>
+                <YAxis
+                  padding={{ top: 20 }}
+                  dataKey="medias"
+                  orientation="right"
+                  yAxisId="right"
+                  tickCount={8}
+                  tickFormatter={v => kFormatter(v) as string}
+                >
+                  <Label value="medias" angle={90} position="insideRight" />
+                </YAxis>
+                <Legend verticalAlign="top" />
+                <Bar yAxisId="left" dataKey="followerCount" barSize={15} fill="rgb(231, 74, 54)" />
+                <Line yAxisId="right" type="monotone" dataKey="medias" strokeWidth={2} stroke="#000000" />
+                <Tooltip />
+              </ComposedChart>
+            </ResponsiveContainer>
+          </div>
 
           <div className="pt-20">
             <MapContainer center={[food[1].lat, food[1].lng]} zoom={10} style={{ height: 500 }}>
@@ -194,6 +236,47 @@ const Home = () => {
             rows={culture}
           />
 
+          <div className="mt-20 p-8 bg-white shadow-sm">
+            <ResponsiveContainer width="100%" height={600}>
+              <ComposedChart
+                data={culture}
+                margin={{
+                  // top: 20,
+                  right: 20,
+                  bottom: 150,
+                  left: 60,
+                }}
+              >
+                <CartesianGrid stroke="#a5a5a5" vertical={false} />
+                <XAxis dataKey="name" scale="auto" interval={0} tick={CustomizedAxisTick} />
+                <YAxis
+                  padding={{ top: 20 }}
+                  dataKey="followerCount"
+                  orientation="left"
+                  yAxisId="left"
+                  tickCount={8}
+                  tickFormatter={v => kFormatter(v) as string}
+                >
+                  <Label value="followerCount" angle={90} position="insideLeft" />
+                </YAxis>
+                <YAxis
+                  padding={{ top: 20 }}
+                  dataKey="medias"
+                  orientation="right"
+                  yAxisId="right"
+                  tickCount={8}
+                  tickFormatter={v => kFormatter(v) as string}
+                >
+                  <Label value="medias" angle={90} position="insideRight" />
+                </YAxis>
+                <Legend verticalAlign="top" />
+                <Bar yAxisId="left" dataKey="followerCount" barSize={15} fill="rgb(231, 74, 54)" />
+                <Line yAxisId="right" type="monotone" dataKey="medias" strokeWidth={2} stroke="#000000" />
+                <Tooltip />
+              </ComposedChart>
+            </ResponsiveContainer>
+          </div>
+
           <div className="pt-20">
             <MapContainer center={[culture[1].lat, culture[1].lng]} zoom={10} style={{ height: 500 }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -210,20 +293,6 @@ const Home = () => {
           </div>
         </div>
       )}
-
-      {/* <div className="max-w-4xl m-auto pt-20">
-        <p className="pb-8 font-bold text-xl">Пока мы делали этот рейтинг, вот что произошло</p>
-
-        <ul>
-          <li>- Мы заболели COVID-19</li>
-          <li>- Спарсили 90k московских и питерских локаций</li>
-          <li>- 3 раза заказали “Кухню на районе”, посмотрели “Анастасию”, “Мулан”, “Красотку” и “Лего Фильм: Бэтмен”.</li>
-        </ul>
-
-        <p className="mt-12">
-          top20locations.ru — проект, который будет развиваться. Не стесняйтесь делиться своими комментариями и идеями КОНТАКТ
-        </p>
-      </div> */}
 
       <div className="max-w-5xl m-auto pt-20">
         <a href="mailto:danokhlopkov@gmail.com" className="underline font-mono font-bold text-xl">
